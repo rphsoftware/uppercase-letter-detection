@@ -28,7 +28,7 @@ fn main() {
     // Read user input (evil 0_0)
     let mut buffer = String::new();
     io::stdin().read_line(&mut buffer)
-        .expect("An error occured while reading user input. What the fuck happened?!?");
+        .expect("An error occured while reading user input.");
 
     // Convert user input to unicode vector
     let utf8data = buffer.as_bytes();
@@ -71,7 +71,7 @@ fn main() {
         }
         if first_bit == 1 && complex_bytes_left != 0 {
             if read_bit(*byte, 6) != 0 {
-                panic!("you are retard");
+                panic!("invalid utf-8 string");
             }
 
             complex_bytes_left -= 1;
