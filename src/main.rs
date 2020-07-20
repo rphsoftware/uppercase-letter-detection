@@ -1,6 +1,5 @@
+use std::io::Stdin;
 use std::io;
-
-mod acs_provider;
 
 fn read_bit(byte: u8, index: u8) -> u8 {
     // build mask
@@ -19,11 +18,7 @@ fn generate_mask(amount: u32) -> u32 {
 }
 
 fn main() {
-    let data: &[u8; 139264];
-
-    unsafe {
-        data = acs_provider::get_data();
-    }
+    let data = include_bytes!("lookuptable.bin");
 
     // Read user input (evil 0_0)
     let mut buffer = String::new();
